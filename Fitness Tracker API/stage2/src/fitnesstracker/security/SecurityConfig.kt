@@ -6,6 +6,7 @@ import org.springframework.http.HttpMethod
 import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.factory.PasswordEncoderFactories
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
@@ -23,7 +24,9 @@ class SecurityConfig {
                 .requestMatchers("/error", "/actuator/shutdown", "/api/tracker").permitAll()
                 .anyRequest().authenticated()
             }
+            .headers { it.frameOptions().disable() }
             .csrf { it.disable() }
+            .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .build()
     }
 

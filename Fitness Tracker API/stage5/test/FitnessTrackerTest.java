@@ -175,29 +175,22 @@ public class FitnessTrackerTest extends SpringTest {
         HttpRequest postRequest = post(trackerUrl, gson.toJson(data))
                 .addHeader("X-API-Key", appProfile.getApikey());
 
-        int rejectedRequests = 0;
-        var statusCode = postRequest.send().getStatusCode();
-        if (statusCode == 429) {
-            rejectedRequests++;
-        }
-        for (int i = 0; i < 3; i++) {
-            statusCode = getRequest.send().getStatusCode();
-            if (statusCode == 429) {
-                rejectedRequests++;
-            }
+        int rejectedRequests = countRejectedRequests(postRequest, getRequest);
+        if (rejectedRequests != 3) {
+            return CheckResult.wrong(
+                    "Too few rejected requests for a basic application within 1 second.\n" +
+                            "Expected 3 responses with the status code 429 but received only %d such responses"
+                                    .formatted(rejectedRequests)
+            );
         }
 
-        // retry in case bucket was replenished during the test
-        if (rejectedRequests < 3) {
-            rejectedRequests = 0;
-            for (int i = 0; i < 3; i++) {
-                statusCode = getRequest.send().getStatusCode();
-                if (statusCode == 429) {
-                    rejectedRequests++;
-                }
-            }
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            System.out.println("Failed to sleep for 1200 ms");
         }
 
+        rejectedRequests = countRejectedRequests(postRequest, getRequest);
         if (rejectedRequests != 3) {
             return CheckResult.wrong(
                     "Too few rejected requests for a basic application within 1 second.\n" +
@@ -301,6 +294,35 @@ public class FitnessTrackerTest extends SpringTest {
             throw new WrongAnswer("Failed to restart application: " + ex.getMessage());
         }
         return CheckResult.correct();
+    }
+
+    private int countRejectedRequests(HttpRequest... requests) {
+        assert requests.length >= 2;
+
+        int rejectedRequests = 0;
+        var statusCode = requests[0].send().getStatusCode();
+        if (statusCode == 429) {
+            rejectedRequests++;
+        }
+        for (int i = 0; i < 3; i++) {
+            statusCode = requests[1].send().getStatusCode();
+            if (statusCode == 429) {
+                rejectedRequests++;
+            }
+        }
+
+        // retry in case bucket was replenished during the test
+        if (rejectedRequests < 3) {
+            rejectedRequests = 0;
+            for (int i = 0; i < 3; i++) {
+                statusCode = requests[1].send().getStatusCode();
+                if (statusCode == 429) {
+                    rejectedRequests++;
+                }
+            }
+        }
+
+        return rejectedRequests;
     }
 
     @DynamicTest
