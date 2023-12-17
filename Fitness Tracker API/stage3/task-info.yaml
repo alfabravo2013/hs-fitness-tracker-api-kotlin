@@ -18,12 +18,6 @@ files:
     visible: true
   - name: src/fitnesstracker/tracker/TrackerRestController.kt
     visible: true
-  - name: test/FitnessTrackerTest.java
-    visible: false
-  - name: test/DataRecord.java
-    visible: false
-  - name: test/DevProfile.java
-    visible: false
   - name: src/fitnesstracker/common/FitnessTrackerApiException.kt
     visible: true
   - name: src/fitnesstracker/developer/Developer.kt
@@ -43,4 +37,26 @@ files:
   - name: src/fitnesstracker/security/AppUserDetailsService.kt
     visible: true
   - name: src/fitnesstracker/security/SecurityConfig.kt
+    visible: true
+  - name: test/DataRecord.java
+    visible: false
+  - name: test/FitnessTrackerTest.java
+    visible: false
+  - name: test/DevProfile.java
+    visible: false
+  - name: test/AppProfile.java
+    visible: false
+  - name: src/fitnesstracker/application/Application.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApiKeyDto.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationProfile.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationRegistrationRequest.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationService.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApiKeyDecisionMaker.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationRestController.kt
     visible: true
