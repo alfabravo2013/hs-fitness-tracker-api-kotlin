@@ -1,0 +1,26 @@
+type: edu
+files:
+  - name: src/fitnesstracker/Application.kt
+    visible: true
+  - name: test/FitnessTrackerTest.java
+    visible: false
+  - name: build.gradle
+    visible: true
+  - name: test/DataRecord.java
+    visible: false
+  - name: src/resources/application.properties
+    visible: true
+  - name: src/fitnesstracker/tracker/model/FitnessData.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/repository/FitnessDataRepository.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/service/FitnessDataService.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/web/DataUploadRequest.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/web/DataDto.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/mapper/Mappers.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/web/TrackerRestController.kt
+    visible: true
