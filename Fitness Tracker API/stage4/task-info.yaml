@@ -1,0 +1,70 @@
+type: edu
+files:
+  - name: src/fitnesstracker/Application.kt
+    visible: true
+  - name: build.gradle
+    visible: true
+  - name: src/resources/application.properties
+    visible: true
+  - name: src/fitnesstracker/tracker/FitnessData.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/FitnessDataRepository.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/FitnessDataService.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/DataUploadRequest.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/DataDto.kt
+    visible: true
+  - name: src/fitnesstracker/tracker/TrackerRestController.kt
+    visible: true
+  - name: src/fitnesstracker/common/FitnessTrackerApiException.kt
+    visible: true
+  - name: src/fitnesstracker/developer/Developer.kt
+    visible: true
+  - name: src/fitnesstracker/developer/DeveloperProfile.kt
+    visible: true
+  - name: src/fitnesstracker/developer/DeveloperRegistrationRequest.kt
+    visible: true
+  - name: src/fitnesstracker/developer/DeveloperRepository.kt
+    visible: true
+  - name: src/fitnesstracker/developer/DeveloperService.kt
+    visible: true
+  - name: src/fitnesstracker/developer/DeveloperRestController.kt
+    visible: true
+  - name: src/fitnesstracker/security/SecurityUser.kt
+    visible: true
+  - name: src/fitnesstracker/security/AppUserDetailsService.kt
+    visible: true
+  - name: src/fitnesstracker/security/SecurityConfig.kt
+    visible: true
+  - name: src/fitnesstracker/application/Application.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApiKeyDto.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationProfile.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationRegistrationRequest.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationService.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApiKeyDecisionMaker.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationRestController.kt
+    visible: true
+  - name: test/FitnessTrackerTest.java
+    visible: false
+  - name: test/AppProfile.java
+    visible: false
+  - name: test/DataRecord.java
+    visible: false
+  - name: test/DevProfile.java
+    visible: false
+  - name: src/fitnesstracker/security/ApiKeyAuthentication.kt
+    visible: true
+  - name: src/fitnesstracker/security/ApiKeyAuthenticationProvider.kt
+    visible: true
+  - name: src/fitnesstracker/application/ApplicationRepository.kt
+    visible: true
+  - name: src/fitnesstracker/security/ApiKeyAuthenticationFilter.kt
+    visible: true
